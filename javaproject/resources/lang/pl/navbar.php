@@ -7,4 +7,6 @@ return [
   'login' => 'Zaloguj się',
   'register' => 'Rejestracja',
   'logout' => 'Wyloguj się',
+  'myprofile' => 'Mój profil',
+  'following' => 'Obserwowane',
 ];

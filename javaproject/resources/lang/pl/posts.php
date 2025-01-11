@@ -2,9 +2,8 @@
 
 return [
   'addnewpost' => 'Dodaj Post',
-  'postcaption' => 'PODPIS',
+  'postcaption' => 'Tytuł',
   'postimage' => 'Zdjęcie',
   'follow' => 'Obserwuj',
-  '' => '',
-
+  'unfollow' => 'Odobserwuj',
 ];

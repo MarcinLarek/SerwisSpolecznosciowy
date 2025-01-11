@@ -15,11 +15,13 @@ Route::get('/', [App\Http\Controllers\PostsController::class, 'index'])->name('i
 Route::get('/p/create', [App\Http\Controllers\PostsController::class, 'create']);
 Route::get('/p/{post}', [App\Http\Controllers\PostsController::class, 'show']);
 Route::post('/p/store', [App\Http\Controllers\PostsController::class, 'store'])->name('post.store');
-
+Route::get('/following', [App\Http\Controllers\PostsController::class, 'following'])->name('post.following');
 
 Route::get('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'index'])->name('profile.show');
 Route::get('/profile/{user}/edit', [App\Http\Controllers\ProfilesController::class, 'edit'])->name('profile.edit');
 Route::patch('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'update'])->name('profile.update');
 Route::get('/findprofile', [App\Http\Controllers\ProfilesController::class, 'findprofile'])->name('profile.findprofile');
+
+Route::get('/follow/{user}', [App\Http\Controllers\ProfilesController::class, 'follow'])->name('profile.follow');
 
 Auth::routes();

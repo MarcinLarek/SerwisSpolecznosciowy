@@ -2,10 +2,11 @@
 
 @section('content')
 <div class="container">
+
     @foreach($posts  as $post)
     <div class="row">
         <div class="col-7 offset-2">
-            <a href="/profile/{{ $post->user->id }}"><img src="/storage/{{ $post->image }}" class="w-100"></a>
+            <a href="/p/ {{ $post->id }}"><img src="/storage/{{ $post->image }}" class="w-100"></a>
         </div>
     </div>
 

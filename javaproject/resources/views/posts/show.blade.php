@@ -20,7 +20,11 @@
                             {{ $post->user->username }}
                             </span>
                             </a>
-                            <a href="#" class="pl-3">{{ __('posts.follow') }}</a>
+                            @if($follows)
+                            <a href="/follow/{{ $post->user->id }}" class="pl-3">{{ __('posts.unfollow') }}</a>
+                            @else
+                            <a href="/follow/{{ $post->user->id }}" class="pl-3">{{ __('posts.follow') }}</a>
+                            @endif
                             </div>
                         </div>
                 </div>

@@ -1,10 +1,11 @@
 <?php
 
 return [
-  'addnewpost' => 'Add New Post',
-  'postcaption' => 'POST CAPTION',
-  'postimage' => 'Post Image',
+  'addnewpost' => 'Create new post',
+  'postcaption' => 'Title',
+  'postimage' => 'Image',
   'follow' => 'Follow',
+  'unfollow' => 'Unfollow',
   '' => '',
 
 ];

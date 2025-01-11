@@ -37,7 +37,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                      @auth
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('post.following') }}">{{ __('navbar.following') }}</a>
+                      </li>
+                      @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -64,7 +68,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
                                   <a class="dropdown-item" href="{{ route('profile.findprofile') }}">
-                                      Mój Profil
+                                      {{ __('navbar.myprofile') }}
                                   </a>
 
                                   <a class="dropdown-item" href="{{ route('logout') }}"
