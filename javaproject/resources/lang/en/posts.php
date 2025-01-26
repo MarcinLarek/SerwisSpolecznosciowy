@@ -7,6 +7,7 @@ return [
   'follow' => 'Follow',
   'unfollow' => 'Unfollow',
   'comment' => 'Write a comment',
+  'comments' => 'Comments',
   'publish' => 'Publish',
 
 ];

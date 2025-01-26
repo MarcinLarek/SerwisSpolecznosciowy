@@ -15,7 +15,7 @@ class Post extends Model
 
     public function comments()
     {
-      return Comment::where('post_id',$this->id)->get();
+      return Comment::where('post_id',$this->id)->orderBy('created_at', 'desc')->get();
       //return $this->hasMany(Comment::class);
     }
 }

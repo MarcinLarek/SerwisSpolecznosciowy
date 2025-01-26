@@ -7,6 +7,7 @@ return [
   'follow' => 'Obserwuj',
   'unfollow' => 'Odobserwuj',
   'comment' => 'Skomentuj',
+  'comments' => 'Komentarze',
   'publish' => 'Opublikuj',
 
 ];

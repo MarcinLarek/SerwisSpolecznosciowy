@@ -32,11 +32,6 @@
                 <hr>
 
                 <p><span class="font-weight-bold">
-                <a href="/profile/{{ $post->user->id }}">
-                <span class="text-dark">
-                {{ $post->user->username }}
-                </span>
-                </a>
                 </span>
                 {{ $post->caption }}
                 </p>
@@ -46,24 +41,29 @@
             <form action="/p/{{$post->id}}/comment" enctype="multipart/form-data" method="post">
               @csrf
             <div class="form-group row pt-2">
-              <label for="description"><b>{{ Auth::user()->username }}</b></label>
-                <p><input type="textfield" class="form-control" name="description" placeholder="{{ __('posts.comment') }}"></p>
+                <input type="textfield" class="form-control" name="description" placeholder="{{ __('posts.comment') }}"></br>
                 <button class="pull-right btn btn-sm btn-primary">{{ __('posts.publish') }}</button>
                 @error('description')
                   <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
+            </form>
 
-            <div class="row pt-2">
-              <div class="pb-1">
-                @foreach($comments as $comment)
-                <a href="/profile/{{ $comment->getUser()->id }}"><b>{{$comment->getUser()->username}}</b></a> </br>
-                {{$comment->description}}
-                @endforeach
-              </div>
+            <div class="lead">
+              <hr>
+              {{ __('posts.comments') }}
             </div>
 
-          </form>
+            <div class="pt-2">
+              @foreach($comments as $comment)
+              <div class="pb-3">
+                <span><a href="/profile/{{ $comment->getUser()->id }}"><b>{{$comment->getUser()->username}}</b></a> </span>
+                <span></br>{{$comment->description}}</span>
+              </div>
+              @endforeach
+            </div>
+
+
         </div>
     </div>
 </div>
