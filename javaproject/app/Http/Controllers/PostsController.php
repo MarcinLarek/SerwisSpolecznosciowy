@@ -7,6 +7,7 @@ use Intervention\Image\Laravel\Facades\Image;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 use App\Models\Post;
+use App\Models\Comment;
 
 class PostsController extends Controller
 {
@@ -51,8 +52,9 @@ class PostsController extends Controller
 
     public function show(\App\Models\Post $post)
     {
+      $comments = $post->comments();
       $follows = (auth()->user()) ? auth()->user()->following->contains($post->user->profile->id) : false;
-        return view ('posts.show', compact('post', 'follows'));
+        return view ('posts.show', compact('post', 'follows', 'comments'));
     }
 
     public function following()
@@ -61,4 +63,19 @@ class PostsController extends Controller
       $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
       return view('posts.index', compact('posts'));
     }
+
+    public function comment(Post $post){
+        $description = request()->validate([
+            'description' => ['required', 'max:1000'],
+        ]);
+
+        $comment = new Comment;
+        $comment->fill([
+            'description' => request()->description,
+            'post_id' => $post->id,
+            'user_id' => auth()->user()->id,
+        ]);
+        $comment->save();
+        return redirect()->back();
+        }
 }

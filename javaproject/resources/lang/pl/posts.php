@@ -6,4 +6,7 @@ return [
   'postimage' => 'Zdjęcie',
   'follow' => 'Obserwuj',
   'unfollow' => 'Odobserwuj',
+  'comment' => 'Skomentuj',
+  'publish' => 'Opublikuj',
+
 ];

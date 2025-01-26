@@ -40,7 +40,30 @@
                 </span>
                 {{ $post->caption }}
                 </p>
+
+                <hr>
             </div>
+            <form action="/p/{{$post->id}}/comment" enctype="multipart/form-data" method="post">
+              @csrf
+            <div class="form-group row pt-2">
+              <label for="description"><b>{{ Auth::user()->username }}</b></label>
+                <p><input type="textfield" class="form-control" name="description" placeholder="{{ __('posts.comment') }}"></p>
+                <button class="pull-right btn btn-sm btn-primary">{{ __('posts.publish') }}</button>
+                @error('description')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="row pt-2">
+              <div class="pb-1">
+                @foreach($comments as $comment)
+                <a href="/profile/{{ $comment->getUser()->id }}"><b>{{$comment->getUser()->username}}</b></a> </br>
+                {{$comment->description}}
+                @endforeach
+              </div>
+            </div>
+
+          </form>
         </div>
     </div>
 </div>

@@ -12,4 +12,10 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function comments()
+    {
+      return Comment::where('post_id',$this->id)->get();
+      //return $this->hasMany(Comment::class);
+    }
 }
